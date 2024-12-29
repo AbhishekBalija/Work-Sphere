@@ -9,7 +9,13 @@ import {
 } from "react-icons/fa";
 import "../App.css";
 
-const EmpDetails = ({ onOptionClick }) => {
+const EmpDetails = ({ 
+  onOptionClick, 
+  showSalaryTrends, 
+  showTopPerformers, 
+  showSalaryDistribution,
+  showEmployeeDistribution 
+}) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const menuOptions = [
@@ -71,7 +77,7 @@ const EmpDetails = ({ onOptionClick }) => {
             <span className="menu-text">{option.label}</span>
           </button>
         ))}
-        {selectedOption && (
+        {(selectedOption || showSalaryTrends || showTopPerformers || showSalaryDistribution || showEmployeeDistribution) && (
           <button
             className="menu-button back-button"
             onClick={handleBack}
