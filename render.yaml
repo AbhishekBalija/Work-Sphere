@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: worksphere-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://worksphere-backend.onrender.com
+
+  - type: web
+    name: worksphere-backend
+    env: node
+    buildCommand: cd server && npm install
+    startCommand: cd server && node server.js
+    envVars:
+      - key: DATABASE_URL
+        sync: false # Will be set in Render dashboard
+      - key: PORT
+        value: 3005
