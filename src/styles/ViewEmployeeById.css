@@ -1,0 +1,172 @@
+.view-by-id-container {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100%;
+}
+
+.search-section {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.search-input-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.search-button:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.result-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+.employee-card {
+    background: var(--surface-dark);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.employee-card:hover {
+    transform: translateY(-4px);
+}
+
+.card-header {
+    background: linear-gradient(to right, var(--accent), var(--accent-hover));
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.profile-icon {
+    font-size: 3rem;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.card-header h2 {
+    color: white;
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.employee-id {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.info-icon {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+}
+
+.info-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.info-content label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.info-content span {
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.loading-message {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.no-result {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+}

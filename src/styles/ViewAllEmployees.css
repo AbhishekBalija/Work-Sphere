@@ -1,0 +1,154 @@
+.employees-container {
+    padding: 2rem;
+    background: var(--surface-dark);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: calc(100vh - 160px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.employees-container h2 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.table-container {
+    flex: 1;
+    overflow: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    min-height: 0; /* Important for proper scrolling */
+}
+
+.employees-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.employees-table thead {
+    position: sticky;
+    top: 0;
+    background: var(--surface-dark);
+    z-index: 1;
+}
+
+.employees-table th,
+.employees-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.employees-table th {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--accent);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.employees-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Column widths */
+.employees-table th:nth-child(1),
+.employees-table td:nth-child(1) {
+    width: 80px;
+}
+
+.employees-table th:nth-child(3),
+.employees-table td:nth-child(3) {
+    width: 120px;
+}
+
+.employees-table th:nth-child(4),
+.employees-table td:nth-child(4) {
+    width: 150px;
+}
+
+.employees-table th:nth-child(5),
+.employees-table td:nth-child(5) {
+    min-width: 200px;
+}
+
+/* Back button styling */
+.back-button {
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-button:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+/* Scrollbar styling */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
+}
+
+/* Loading and error states */
+.loading, .error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.error {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .employees-container {
+        padding: 1rem;
+    }
+    
+    .employees-table th,
+    .employees-table td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}

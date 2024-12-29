@@ -1,0 +1,296 @@
+:root {
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --secondary-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+  --background-dark: #0f172a;
+  --surface-dark: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent: #22d3ee;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh; /* Force full height */
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, sans-serif;
+  overflow: hidden; /* Prevent double scrollbars */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.header {
+  background: var(--primary-gradient);
+  padding: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.header h1 {
+  color: white;
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  gap: 2rem;
+  padding: 2rem;
+  height: calc(100vh - 80px);
+  overflow: hidden;
+  align-items: stretch; /* Make children stretch to match height */
+}
+
+.emp-details-container {
+  width: 280px;
+  min-width: 280px; /* Prevent sidebar from shrinking */
+  background: var(--surface-dark);
+  border-radius: 16px;
+  padding: 2.5rem 2rem; /* Increased vertical padding */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  margin-top: 1.5rem; /* Match the top margin of dashboard cards */
+  height: fit-content; /* Control the height */
+  align-self: flex-start; /* Align to top */
+}
+
+.menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem; /* Increased gap between menu items */
+  width: 100%;
+}
+
+.menu-button {
+  width: 100%;
+  padding: 1rem 1.5rem; /* Increased padding */
+  text-align: left;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem; /* Increased gap between icon and text */
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-button svg {
+  font-size: 1.25rem;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-color: var(--accent);
+  transform: translateX(5px);
+}
+
+.menu-button:hover svg {
+  transform: scale(1.1);
+}
+
+.menu-button:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.menu-button.selected {
+  background: var(--secondary-gradient);
+  background-size: 200% 200%;
+  color: white;
+  transform: translateX(5px);
+  border: none;
+  animation: menuSelect 3s ease infinite;
+}
+
+.menu-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes menuSelect {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.dashboard-section {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  align-content: start;
+  padding: 2.5rem 2rem; /* Match left container padding */
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
+}
+
+.dashboard-component {
+  background: var(--surface-dark);
+  border-radius: 16px;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  min-height: 180px; /* Slightly reduced height */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dashboard-component:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+}
+
+.component-title {
+  color: var(--accent);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  margin: 0; /* Remove margin to allow true centering */
+}
+
+.component-title svg {
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.component-content {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* Add some cool animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-component {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Add scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Improve tooltip appearance */
+[title] {
+  position: relative;
+}
+
+[title]:hover::before {
+  content: attr(title);
+  position: absolute;
+  background: var(--surface-dark);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 1rem;
+  border: 1px solid var(--accent);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+[title]:hover::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-right-color: var(--surface-dark);
+  margin-left: -6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+[title]:hover::before,
+[title]:hover::after {
+  opacity: 1;
+}
+
+.menu-button.back-button {
+  margin-top: 1rem;
+  border: 1px solid var(--accent);
+  background: transparent;
+}
+
+.menu-button.back-button:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.menu-button.back-button:hover svg {
+  color: white;
+  transform: translateX(-3px);
+}
+
+.menu-button.back-button svg {
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
